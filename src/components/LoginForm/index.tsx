@@ -20,7 +20,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [answer, setAnswer] = useState("");
   const [screenHeight, setScreenHeight] = useState(0);
   //1 проверка регистрации в этом дне
