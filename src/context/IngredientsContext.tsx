@@ -42,7 +42,7 @@ export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
       localStorage.setItem("ingredientHistory7", JSON.stringify(userChoice));
     }
   }, [userChoice]);
-  console.log("userChoice=", userChoice);
+  //console.log("userChoice=", userChoice);
 
   return (
     <IngredientsContext.Provider value={value}>
