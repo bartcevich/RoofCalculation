@@ -1,0 +1,13 @@
+@import '@/app/variables.scss';
+.wrapper{
+    //height: 21em;
+    height: 70vh;
+    margin: 75px 0 30px 10px;
+    @include font(#E47611, Inter, 20px, normal, 600, 25px, 0);
+    font-size: clamp(18px, 3vw, 20px);
+    text-align: center;
+    li{
+        margin: 15px 0;
+    }
+
+}

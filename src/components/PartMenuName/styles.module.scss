@@ -1,0 +1,18 @@
+@import '@/app/variables.scss';
+.container_top{
+    //display: flex;
+    input:focus{
+        outline: 3px solid #E47611;
+        border-radius: 10px;
+    }
+}
+.container_input{
+    position: relative;
+    max-width: 230px;
+    height: 30px;
+    left: 140px;
+    top: 30px;
+    background-color: transparent;
+    @include font(#008000, Inter, 15px, normal, 400, 15px, 0);
+    
+}

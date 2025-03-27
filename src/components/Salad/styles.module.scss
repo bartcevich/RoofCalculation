@@ -1,0 +1,75 @@
+@import '@/app/variables.scss';
+.container_top{
+    margin-top: 5px;
+    display: flex;
+    flex-flow: row;
+}
+.container{
+    display: flex;
+    flex-flow: column;
+    select{
+        width: 250px;
+    }
+    
+}
+.container p{
+    display: none;
+}
+@media (hover: hover)  {
+    .container:hover p{
+        display: block;
+        @include font(#fff, Inter, 16px, normal, 400, 20px, 0);
+    }
+}
+@media (hover: none)  {
+    .container p{
+        display: none;
+    }
+}
+.container_select{
+    background-color: transparent;
+    @include font(#212121, Inter, 20px, normal, 600, 25px, 0);
+    font-size: clamp(15px, 3vw, 20px);
+}
+.container_select:hover{
+    cursor: pointer
+}
+.container_button{
+    display: flex;
+}
+.button{
+        @include font(#212121, Inter, 18px, normal, 400, 30px, 0);
+        margin: 0 5px 0 5px;
+}
+.button:hover{
+    cursor: pointer
+}
+.button2{
+    @include font(#212121, Inter, 17px, normal, 400, 30px, 0);
+        margin: 0 5px 0 5px;
+}
+.container_text{
+    margin-right: 10px;
+    max-width: 80px;
+    @include font(#212121, Inter, 15px, normal, 400, 15px, 0);
+    // font-size: clamp(15px, 3vw, 25px);
+}
+.container_ingredients{
+    @include font(#FFFDD0, Inter, 20px, oblique, 400, 18px, 2px);
+    font-size: clamp(15px, 3vw, 20px);
+}
+.container_popup{
+    position: absolute;
+    width: 300px;
+    height: 500px;
+    border: 2px solid #1805a4;
+    border-radius: 10px;
+    background: #99b5bf;
+    left: 20px;
+}
+.container_Summarized{
+    max-width: 700px;
+    width: 100%;
+    @include font(#212121, Inter, 25px, normal, 400, 30px, 0);
+    font-size: clamp(15px, 3vw, 25px);
+}

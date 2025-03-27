@@ -1,0 +1,58 @@
+@import '@/app/variables.scss';
+
+// .wrapper{
+//   height: 45em;
+// }
+@keyframes slideIn {
+  from {
+    transform: translateX(-40vw);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.animate-slide {
+  animation: slideIn 1s ease-in-out; /* Apply the animation when the class is added */
+  animation-fill-mode: forwards; /* Ensure the animation ends at the final keyframe */
+}
+
+.containerForm{
+  // margin-bottom: 200px;
+  @include font(#000, Inter, 20px, normal, 400, 20px, 0);
+  text-align: center;
+  position: relative;
+  animation: slideIn 1s ease-in-out; /* Apply the animation */
+  animation-fill-mode: forwards; /* Ensure the animation ends at the final keyframe */
+  top: 10%; /* Position the top edge at 50% of the viewport height */
+  left: 50%; /* Position the left edge at 50% of the viewport width */
+  transform: translate(-50%, 50%);
+  width: 270px;
+  //height: 21em;
+  min-height: 300px;
+  border: 2px solid #E47611;
+  border-radius: 10px;
+  background-color: rgba(153, 181, 191, 0.5);
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.imageTest{
+  width: 60px;
+}
+.button{
+  margin-top: 5px;
+  border: 3px solid #E47611;
+  border-radius: 10px;
+}
+.button:hover{
+  background-color: rgba(153, 181, 191, 0.9);
+}
+// input[id="contactEmail"]{
+//   accent-color: rgba(153, 181, 191, 0.5);
+// }
+@media screen and (max-width: 550px){
+  .wrapper{
+    margin-top: 130px;
+  }
+}

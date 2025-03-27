@@ -1,0 +1,32 @@
+@import '@/app/variables.scss';
+.container{
+    display: flex;
+    margin: 0 10px;
+    color: #E47611;
+    h3{
+        max-width: 250px;
+        width: 100%;
+    }
+}
+.buyForDay{
+    //color: #E47611;
+    @include font(#E47611, Inter, 20px, normal, 400, 20px, 0);
+    font-size: clamp(15px, 3vw, 20px);
+}
+.handleIngredients{
+    margin: 0 10px;
+    color: #E47611;
+}
+.handleCopy{
+    color: #E47611;
+}
+.tooltip {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #E47611;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }

@@ -1,0 +1,23 @@
+$color-red-light: #ef233c;
+$color-red-dark: #d90429;
+
+//$font-helvetica: HelveticaNeueCyr, sans-serif;
+$font-helvetica: HelveticaNeueCyr, sans-serif;
+$font-barlow: Barlow, sans-serif;
+@mixin font($color, $family, $size, $style, $weight, $height, $spacing){
+  color: $color;
+  font-family: $family;
+  font-size: $size;
+  font-style: $style;
+  font-weight: $weight;
+  line-height: $height;
+  letter-spacing: $spacing;
+}
+
+
+:export {
+  fontHelveticaNeueCyr: $font-helvetica;
+  fontBarlow: $font-barlow;
+  colorRedLight: $color-red-light;
+  colorRedDark: $color-red-dark;
+}

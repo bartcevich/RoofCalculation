@@ -1,0 +1,131 @@
+@import '@/app/variables.scss';
+// @import url("../../assets/images/background.png");
+.container {
+  //padding-top: 65px;
+  //margin-top: 65px;
+  display: flex;
+  flex-flow: column;
+}
+.background1 {
+  background-image: url("../../assets/images/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+.background2 {
+  background: radial-gradient(100% 300% at 0% 0%, #262425 50%, #5B483A 100%), #211F20;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+.background3 {
+  background: linear-gradient(45deg, #64b5f6, #81c784, #ffeb3b, #ff8a65);
+   background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+  min-height: 100vh;
+}
+.background4 {
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container_button{
+  max-width: 280px;
+    width: 100%;
+    padding-top: 65px;
+  display: flex;
+  justify-content: space-between;
+  color: #E47611;
+}
+
+.goToTop{
+    margin: 5px;
+    display: flex;
+    justify-content: flex-end;
+    @include font(#E47611, Inter, 28px, normal, 400, 30px, 0);
+}
+.button{
+      @include font(#E47611, Inter, 18px, normal, 400, 30px, 0);
+      margin: 0 5px 0 5px;
+}
+.button:hover{
+  cursor: pointer
+}
+.button2{
+  @include font(#E47611, Inter, 17px, normal, 400, 30px, 0);
+      margin: 0 5px 0 5px;
+}
+.container_text{
+  margin-right: 10px;
+  max-width: 80px;
+  @include font(#E47611, Inter, 15px, normal, 400, 15px, 0);
+  // font-size: clamp(15px, 3vw, 25px);
+}
+// .column2{
+//     //min-height: 100px;
+//     border: 3px solid #E47611;
+//     border-radius: 10px;
+// }
+.column1 {
+  margin-top: 20px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+@media (min-width: 680px) {
+    // .container{
+    //     flex-flow: wrap;
+    // }
+    .column1 {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: center;
+        gap: 20px;
+        flex: 1;
+        overflow-y: auto;
+        height: 100vh;
+      }
+      // .column2 {
+      //   max-width: 200px;
+      //   width: 100%;
+      //   overflow-y: auto;
+      //   height: 100vh;
+      // }
+      // .column3 {
+      //   max-width: 200px;
+      //   width: 100%;
+      // }
+      // .column1::-webkit-scrollbar {
+      //     width: 0; 
+      //   }
+      //   .column2::-webkit-scrollbar {
+      //     width: 0; 
+      //   }
+}

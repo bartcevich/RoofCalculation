@@ -1,0 +1,91 @@
+@import '@/app/variables.scss';
+.container{
+    display: flex;
+}
+.image{
+    height: 60px;
+    max-width: 100px;
+    width: 100%;
+    padding-right: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: flex-end;
+    // clip-path: circle(50% at 50% 50%);
+    
+}
+.image>img{
+    border-top-left-radius: 1.5rem;
+    // border-top-right-radius: 1rem;
+    border-bottom-right-radius: 0.9rem;
+    // border-bottom-left-radius: 2rem;
+    rotate: -1deg;
+}
+.label{
+    max-width: 200px;
+    @include font(#E47611, Inter, 20px, normal, 400, 20px, 0);
+    font-size: clamp(18px, 3vw, 20px);
+}
+.nameDish{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.nameDish::before {
+    content: "👉 "; /* Добавляем символ перед текстом */
+    color:#E47611;
+  }
+.numberServings {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 24px;
+  }
+  
+.container_button{
+    display: flex;
+}
+.button{
+    @include font(#E47611, Inter, 19px, normal, 600, 25px, 0);
+    font-size: clamp(16px, 3vw, 19px);
+}
+.dropdownIcon{
+    //position: absolute;
+    height: 20px;
+    margin-left: 15px;
+    color: #fff;
+    font-size: 18px;
+}
+.dropdownIcon:hover{
+    cursor: pointer;
+    transform: rotate(3turn);
+    transition: 2s;
+}
+// .dropdownIcon::before{
+    
+// }
+.ingredientCourse{
+    @include font(#E47611, Inter, 20px, normal, 400, 17px, 0);
+    font-size: clamp(15px, 3vw, 20px);
+}
+.container_text{
+    @include font(#E47611, Inter, 25px, normal, 400, 30px, 0);
+    font-size: clamp(15px, 3vw, 25px);
+}
+.container_popup{
+    position: absolute;
+    width: 300px;
+    height: 500px;
+    border: 2px solid #1805a4;
+    border-radius: 10px;
+    background: #99b5bf;
+    left: 20px;
+}
+.container_Summarized{
+    max-width: 700px;
+    width: 100%;
+    @include font(#E47611, Inter, 25px, normal, 400, 30px, 0);
+    font-size: clamp(15px, 3vw, 25px);
+}
+.handleIngredients{
+    margin: 0 10px;
+}

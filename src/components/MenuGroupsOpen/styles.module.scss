@@ -1,0 +1,110 @@
+@import '@/app/variables.scss';
+.container_top{
+    display: flex;
+    flex-flow: column;
+    //margin-top: 65px;
+    //margin-left: 10px;
+}
+
+.container_button p{
+    display: none;
+}
+@media (hover: hover)  {
+    .container_button:hover p{
+        display: block;
+    }
+}
+@media (hover: none)  {
+    .container_button p{
+        display: none;
+    }
+}
+
+.container_popup{
+    // position: relative;
+    width: 350px;
+    min-height: 400px;
+    border: 2px solid #E47611;
+    border-radius: 10px;
+    background-color: rgba(153, 181, 191, 0.5);
+    padding: 5px;
+    // left: 20px;
+    // top: 15px;
+    margin-bottom: 15px;
+}
+.container_popup2{
+    top: 170px;
+}
+.buyForDay{
+    //color: #E47611;
+    @include font(#E47611, Inter, 20px, normal, 400, 20px, 0);
+    font-size: clamp(15px, 3vw, 20px);
+}
+.handleIngredients{
+    margin: 0 10px;
+    color: #E47611;
+}
+.handleCopy{
+    color: #E47611;
+}
+// .tooltip {
+//     position: absolute;
+//     top: 85%;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     background: #333;
+//     color: #E47611;
+//     padding: 4px 8px;
+//     border-radius: 4px;
+// }
+.menuGroup{
+    margin-bottom: 5px;
+    width: 130px;
+        height: 30px;
+        border: 2px solid #E47611;
+        border-radius: 10px;
+        @include font(#E47611, Inter, 15px, normal, 400, 15px, 0);
+}
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgba(153, 181, 191, 0.5);
+    color: #000;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+  
+    // &.tooltipTop {
+    //     top: 20px;
+    //     right: 117px;
+    //   margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+    // }
+  }
+@media (hover: hover)  {
+    .menuGroup:hover{
+        transform: scale(1.1);
+        background-color: rgba(153, 181, 191, 0.5);
+    }
+    .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+}
+@media (hover: none)  {
+    .menuGroup:active{
+        background-color: rgba(153, 181, 191, 0.5);
+    }  
+    .tooltip:hover .tooltiptext {
+        visibility: hidden;
+      }
+}
+
+  
+
+// .menuGroup::before{
+//     content: attr();
+// }
+// .menuGroup::after{
+// content: attr(data-tooltip);
+// }

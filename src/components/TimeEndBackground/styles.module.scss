@@ -1,0 +1,17 @@
+@import '@/app/variables.scss';
+.container{
+    padding-top: 65px;
+    display: flex;
+    justify-content: space-between;
+    color: #E47611;
+}
+.button{
+    display: flex;
+    accent-color: #E47611;
+}
+@media (max-width: 670px) {
+    .container{
+        flex-flow: column;
+    }
+
+}

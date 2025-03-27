@@ -1,0 +1,20 @@
+@import '@/app/variables.scss';
+
+.container_top {
+  textarea {
+    width: 250px;
+    height: 20px; // Set initial height to 30px
+    margin-left: 10px;
+    font-size: clamp(18px, 3vw, 20px);
+    background-color: transparent;
+    @include font(#008000, Inter, 20px, normal, 400, 25px, 0);
+
+    &:focus {
+      outline: 3px solid #E47611;
+      border-radius: 5px;
+      white-space: pre-wrap;
+      height: 100px; // Change height to 100px when in focus
+    }
+  }
+}
+

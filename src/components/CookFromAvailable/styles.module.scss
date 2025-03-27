@@ -1,0 +1,164 @@
+@import '@/app/variables.scss';
+
+.center{
+    padding-top: 65px;
+    display: flex;
+    justify-content: center;
+}
+.background1 {
+    background-image: url("../../assets/images/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  .background2 {
+    background: radial-gradient(100% 300% at 0% 0%, #262425 50%, #5B483A 100%), #211F20;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  .background3 {
+    background: linear-gradient(45deg, #64b5f6, #81c784, #ffeb3b, #ff8a65);
+     background-size: 400% 400%;
+    animation: gradientAnimation 7s ease infinite;
+    // border-radius: 15px;
+  }
+  .background4 {
+    background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 50% 100%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    75% {
+      background-position: 50% 0%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+.wrapper{
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    // align-items: center;
+    //height: 21em;
+    min-height: 70vh;
+    //margin: 75px 0 30px 10px;
+    @include font(#E47611, Inter, 20px, normal, 600, 25px, 0);
+    font-size: clamp(18px, 3vw, 20px);
+    text-align: center;
+    li{
+        margin: 15px 0;
+    }
+    h2{
+     width: 35ch;
+     animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+     white-space: nowrap;
+     overflow: hidden;
+     border-right: 3px solid;
+     font-family: monospace;
+  //font-size: 2em;
+    }
+    @keyframes typing {
+        from {
+          width: 0
+        }
+      }
+    @keyframes blink {
+        50% {
+          border-color: transparent
+        }
+      }
+}
+
+.form{
+    background-color: transparent;
+    margin-bottom: 30px;
+    //field-sizing: content;
+    max-width: 200px;
+    //accent-color: #FF0000;
+}
+
+.background{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.background_image{
+    width: 320px;
+}
+.container_background{
+    position: absolute;
+    display: flex;
+    flex-flow: column;
+    left: 175px;
+    top: 80px;
+}
+.image{
+    height: 60px;
+    max-width: 100px;
+    width: 100%;
+    padding-right: 5px;
+    display: flex;
+    // justify-content: flex-end;
+}
+.container_scroll{
+    overflow-y: auto;
+    height: 70vh;
+    position: absolute;
+    top: 85px;
+    /* right: -11px; */
+    left: -30px;
+    width: 450px;
+}
+.menuItem{
+    background-color: rgba(153, 181, 191, 0.9);
+}
+.label{
+    width: 200px;
+    margin-bottom: 10px;
+    text-align: start
+    // @include font(#E47611, Inter, 20px, normal, 400, 17px, 0);
+    // font-size: clamp(18px, 3vw, 20px);
+}
+.ingredientCourse{
+    @include font(#E47611, Inter, 20px, normal, 400, 20px, 0);
+    font-size: clamp(15px, 3vw, 20px);
+}
+@media (max-width: 600px){
+    .wrapper{
+        max-width: 300px;
+        width: 100%;
+
+    }
+    .container_background{
+        left: 35px;
+    }
+    .container_scroll{
+        width: 298px;
+        h2{
+            width: 22.5ch;
+        }
+    }
+    .container{
+        flex-flow: column;
+    }
+    .labelImage{
+        display: flex;
+        flex-flow: row-reverse;
+    }
+}
