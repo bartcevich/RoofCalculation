@@ -29,7 +29,7 @@ export default function MenuGroups(props: any) {
           //setLabel={setLabel}
         />
         <SideDish day={day} />
-        <Soup day={day} />
+        {/* <Soup day={day} /> */}
         <Salad day={day} />
         {/* <Desserts day={day} /> */}
       </div>

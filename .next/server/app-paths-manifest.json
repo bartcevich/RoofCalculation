@@ -1,3 +1,8 @@
 {
-  "/page": "app/page.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js",
+  "/cookFromAvailable/page": "app/cookFromAvailable/page.js",
+  "/favoriteMenu/page": "app/favoriteMenu/page.js",
+  "/kids/page": "app/kids/page.js",
+  "/programs/page": "app/programs/page.js"
 }
