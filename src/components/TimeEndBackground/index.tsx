@@ -129,11 +129,11 @@ export default function TimeEndBackground() {
             {isOnline ? "Online" : "Offline"}
           </span>
         </div> */}
-        <div className={styles.dateTimeFormat}>
+        {/*<div className={styles.dateTimeFormat}>
           <FontAwesomeIcon icon={faBattery} />={currentStateBattery}
           <span> </span>
           {formatter.format(currentTime)}
-        </div>
+        </div>*/}
       </div>
     </>
   );

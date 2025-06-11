@@ -12,6 +12,7 @@ import {
   faCaretSquareLeft,
   faArrowCircleUp,
 } from "@fortawesome/free-solid-svg-icons";
+import RechartsComponent from "@/components/RechartsComponent";
 
 export default function ShowSevenAndStorage() {
   const { userChoice, setUserChoice } = useContext(IngredientsContext);
@@ -100,6 +101,7 @@ export default function ShowSevenAndStorage() {
       <div className={`${styles.containerTest} ${backgroundClass}`}>
         <TimeEndBackground />
         <div className={styles.container}>
+          <RechartsComponent />
           <div className={styles.column1}>
             <div className={styles.menuGroups2}>
               <MenuGroups day={"day2"} />
