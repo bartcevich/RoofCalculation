@@ -1,13 +1,119 @@
 @import '@/app/variables.scss';
-.wrapper{
-    //height: 21em;
-    height: 70vh;
-    margin: 75px 0 30px 10px;
-    @include font(#E47611, Inter, 20px, normal, 600, 25px, 0);
-    font-size: clamp(18px, 3vw, 20px);
-    text-align: center;
-    li{
-        margin: 15px 0;
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.controls {
+  color: black;
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.chartWrapper {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.xSettings {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.rangeInput {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 80px;
+  }
+}
+
+.graphsTable {
+  margin-top: 20px;
+  overflow-x: auto;
+  color: black;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: center;
     }
 
+    th {
+      background: #f0f0f0;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 80px;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    input[type="color"] {
+      width: 40px;
+      height: 30px;
+      padding: 0;
+      border: none;
+    }
+
+    button {
+      padding: 5px 10px;
+      background: #ff4444;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background: #cc0000;
+      }
+    }
+  }
 }
+
+// button {
+//   padding: 8px 15px;
+//   background: #4CAF50;
+// //   color: white;
+//   border: none;
+//   border-radius: 4px;
+// //   cursor: pointer;
+//   margin-bottom: 10px;
+
+//   &:hover {
+//     background: #45a049;
+//   }
+
+//   &:disabled {
+//     background: #cccccc;
+//     cursor: not-allowed;
+//   }
+// }

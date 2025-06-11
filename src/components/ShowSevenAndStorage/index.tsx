@@ -102,14 +102,14 @@ export default function ShowSevenAndStorage() {
         <TimeEndBackground />
         <div className={styles.container}>
           <RechartsComponent />
-          <div className={styles.column1}>
+          {/* <div className={styles.column1}>
             <div className={styles.menuGroups2}>
               <MenuGroups day={"day2"} />
             </div>
             <div className={styles.menuGroups1}>
               <MenuGroupsOpen day={"day1"} />
             </div>
-          </div>
+          </div> */}
           <div>
             {/* <div className={styles.column2}>
               <div className={styles.menuGroups8}>

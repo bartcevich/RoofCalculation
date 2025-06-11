@@ -1,0 +1,422 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[3].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[3].oneOf[9].use[5]!./src/components/TimeEndBackground/styles.module.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.styles_container__9CYIR {
+  padding-top: 65px;
+  display: flex;
+  justify-content: space-between;
+  color: #E47611;
+}
+
+.styles_button__OV10l {
+  display: flex;
+  accent-color: #E47611;
+}
+
+@media (max-width: 670px) {
+  .styles_container__9CYIR {
+    flex-flow: column;
+  }
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[3].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[3].oneOf[9].use[5]!./src/components/LineRow/styles.module.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[3].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[3].oneOf[9].use[5]!./src/components/Soup/styles.module.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.styles_container_top__7OFyz {
+  margin-top: 5px;
+  display: flex;
+  flex-flow: row;
+}
+
+.styles_container__gBl_n {
+  display: flex;
+}
+.styles_container__gBl_n select {
+  width: 215px;
+}
+
+.styles_container_select__4tZjM {
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  color: #212121;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 25px;
+  letter-spacing: 0;
+  font-size: clamp(15px, 3vw, 20px);
+}
+
+.styles_container_button__9Jkqm {
+  display: flex;
+}
+
+.styles_button__IMy0I {
+  color: #212121;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0;
+  margin: 0 5px 0 5px;
+}
+
+.styles_button__IMy0I:hover {
+  cursor: pointer;
+}
+
+.styles_button2__ax9mk {
+  color: #212121;
+  font-family: Inter;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0;
+  margin: 0 5px 0 5px;
+}
+
+.styles_container_text__UCMOZ {
+  margin-right: 10px;
+  max-width: 80px;
+  color: #212121;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0;
+}
+
+.styles_container_ingredients__JxrpR {
+  color: #FFFDD0;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: oblique;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 2px;
+  font-size: clamp(15px, 3vw, 20px);
+}
+
+.styles_container_popup__woY6G {
+  position: absolute;
+  width: 300px;
+  height: 500px;
+  border: 2px solid #1805a4;
+  border-radius: 10px;
+  background: #99b5bf;
+  left: 20px;
+}
+
+.styles_container_Summarized__nNm3V {
+  max-width: 700px;
+  width: 100%;
+  color: #212121;
+  font-family: Inter;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0;
+  font-size: clamp(15px, 3vw, 25px);
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[3].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[3].oneOf[9].use[5]!./src/components/RechartsComponent/styles.module.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.styles_container__uBmr8 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.styles_controls__3tmjh {
+  color: black;
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.styles_chartWrapper__4rFbM {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.styles_xSettings__Aw_h0 {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.styles_rangeInput__6GJCy {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+.styles_rangeInput__6GJCy label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.styles_rangeInput__6GJCy input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 80px;
+}
+
+.styles_graphsTable__09_Gf {
+  margin-top: 20px;
+  overflow-x: auto;
+  color: black;
+}
+.styles_graphsTable__09_Gf table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.styles_graphsTable__09_Gf table th, .styles_graphsTable__09_Gf table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+.styles_graphsTable__09_Gf table th {
+  background: #f0f0f0;
+}
+.styles_graphsTable__09_Gf table input[type=text],
+.styles_graphsTable__09_Gf table input[type=number] {
+  width: 80px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.styles_graphsTable__09_Gf table input[type=color] {
+  width: 40px;
+  height: 30px;
+  padding: 0;
+  border: none;
+}
+.styles_graphsTable__09_Gf table button {
+  padding: 5px 10px;
+  background: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.styles_graphsTable__09_Gf table button:hover {
+  background: #cc0000;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[3].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[3].oneOf[9].use[5]!./src/components/ShowSevenAndStorage/styles.module.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.styles_container__2CT7I {
+  display: flex;
+  flex-flow: column;
+}
+
+.styles_background1__HX5ZP {
+  background-image: url(/_next/static/media/background.21449a94.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.styles_background2__7RCAh {
+  background: radial-gradient(100% 300% at 0% 0%, #262425 50%, #5B483A 100%), #211F20;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.styles_background3__I5jC_ {
+  background: linear-gradient(45deg, #64b5f6, #81c784, #ffeb3b, #ff8a65);
+  background-size: 400% 400%;
+  animation: styles_gradientAnimation__SvXxk 10s ease infinite;
+  min-height: 100vh;
+}
+
+.styles_background4__Td3qv {
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+@keyframes styles_gradientAnimation__SvXxk {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.styles_container_button__oOeIj {
+  max-width: 280px;
+  width: 100%;
+  padding-top: 65px;
+  display: flex;
+  justify-content: space-between;
+  color: #E47611;
+}
+
+.styles_goToTop__gLhYj {
+  margin: 5px;
+  display: flex;
+  justify-content: flex-end;
+  color: #E47611;
+  font-family: Inter;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0;
+}
+
+.styles_button__vh3cO {
+  color: #E47611;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0;
+  margin: 0 5px 0 5px;
+}
+
+.styles_button__vh3cO:hover {
+  cursor: pointer;
+}
+
+.styles_button2__6hPYA {
+  color: #E47611;
+  font-family: Inter;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0;
+  margin: 0 5px 0 5px;
+}
+
+.styles_container_text__C30S1 {
+  margin-right: 10px;
+  max-width: 80px;
+  color: #E47611;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0;
+}
+
+.styles_column1__kjk3k {
+  margin-top: 20px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+@media (min-width: 680px) {
+  .styles_column1__kjk3k {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    gap: 20px;
+    flex: 1;
+    overflow-y: auto;
+    height: 100vh;
+  }
+}
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[3].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[3].oneOf[9].use[5]!./src/components/LoginForm/styles.module.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@keyframes styles_slideIn__8_QdL {
+  from {
+    transform: translateX(-40vw);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.styles_animate-slide__4XcFj {
+  animation: styles_slideIn__8_QdL 1s ease-in-out; /* Apply the animation when the class is added */
+  animation-fill-mode: forwards; /* Ensure the animation ends at the final keyframe */
+}
+
+.styles_containerForm__3HubK {
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: center;
+  position: relative;
+  animation: styles_slideIn__8_QdL 1s ease-in-out; /* Apply the animation */
+  animation-fill-mode: forwards; /* Ensure the animation ends at the final keyframe */
+  top: 10%; /* Position the top edge at 50% of the viewport height */
+  left: 50%; /* Position the left edge at 50% of the viewport width */
+  transform: translate(-50%, 50%);
+  width: 270px;
+  min-height: 300px;
+  border: 2px solid #E47611;
+  border-radius: 10px;
+  background-color: rgba(153, 181, 191, 0.5);
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.styles_imageTest__Ae7cL {
+  width: 60px;
+}
+
+.styles_button__ox83s {
+  margin-top: 5px;
+  border: 3px solid #E47611;
+  border-radius: 10px;
+}
+
+.styles_button__ox83s:hover {
+  background-color: rgba(153, 181, 191, 0.9);
+}
+
+@media screen and (max-width: 550px) {
+  .styles_wrapper__T8DWD {
+    margin-top: 130px;
+  }
+}

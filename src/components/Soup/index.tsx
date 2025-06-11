@@ -5,7 +5,11 @@ import { IngredientsContext } from "@/context/IngredientsContext";
 import styles from "./styles.module.scss";
 
 interface MondayProps {
-  day: any;
+  width: string;
+  height: string;
+  setWidth: (values: string) => void;
+  setHeight: (values: string) => void;
+  // day: any;
 }
 
 const Starters: React.FC<MondayProps> = (props) => {
@@ -91,13 +95,15 @@ const Starters: React.FC<MondayProps> = (props) => {
   const handleWidthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setWidth(value === "" ? "" : parseFloat(value));
-    validateWidth(value);
+    props.setWidth(value);
+    // validateWidth(value);
   };
 
   const handleLengthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setLength(value === "" ? "" : parseFloat(value));
-    validateLength(value);
+    props.setHeight(value);
+    // validateLength(value);
   };
 
   useEffect(() => {
@@ -117,7 +123,7 @@ const Starters: React.FC<MondayProps> = (props) => {
           Ширина (5-25 м):
           <input
             type="number"
-            value={width !== "" ? width : ""}
+            value={props.width}
             step={0.2}
             min={5}
             max={25}
@@ -131,7 +137,7 @@ const Starters: React.FC<MondayProps> = (props) => {
           Длина (5-50 м):
           <input
             type="number"
-            value={length !== "" ? length : ""}
+            value={props.height}
             step={0.2}
             min={5}
             max={50}

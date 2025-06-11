@@ -10,37 +10,187 @@ import {
   Line,
 } from "recharts";
 import styles from "./styles.module.scss";
+import { LineRow } from "../LineRow";
+import Soup from "@/components/Soup";
 
-export default function MenuGroups() {
-  const lineX = Array.from({ length: 25 }, (_, index) => index * 30);
-  const curve1 = [
-    0.2, -0.28, -0.32, -0.37, -0.42, -0.44, -0.27, 0.07, 0.56, 1.71, 5.05,
-    16.32, 35.58, 166.4, 86.16, 35.07, 18.74, 12.82, 10.02, 8.64, 7.45, 6.38,
-    4.72, 2.81, 1.24,
-  ]; //[18.86, 48.18, 75.81, 51.06, 17.95, 14.66, 26.1];
-  // const curve2 = [0, 108.55, 43.33, 23.85, 36.34, 4.56, -55.3];
-  // const curve3 = [0, 30.25, 65.81, 91.06, 61.81, 30.18, -30.18];
+interface GraphData {
+  id: number;
+  name: string;
+  color: string;
+  values: number[];
+}
 
-  // Формируем единый массив объектов
-  const data = lineX.map((x, i) => ({
-    name: String(x),
-    uv: curve1[i],
-    // pv: curve2[i],
-    // amt: curve3[i],
-  }));
+export default function RechartsCurve() {
+  const [width, setWidth] = useState<string>("1200");
+  const [height, setHeight] = useState<string>("500");
+  const [graphs, setGraphs] = useState<GraphData[]>([
+    {
+      id: 2,
+      name: "График 2",
+      color: "#82ca9d",
+      values: [0, 108.55, 43.33, 23.85, 36.34, 4.56, -55.3],
+    },
+  ]);
+
+  const [xValues, setXValues] = useState<number[]>(
+    [-100, -90, -80, -70, -60, -50, -40, -30, -20, -10]
+    // Array.from({ length: 25 }, (_, index) => index * 30)
+  );
+  // Добавление нового графика
+  const addGraph = () => {
+    if (graphs.length >= 20) return;
+
+    const newGraph: GraphData = {
+      id: Date.now(),
+      name: `График ${graphs.length + 1}`,
+      color: `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+      values: Array(xValues.length).fill(-1),
+    };
+    setGraphs([...graphs, newGraph]);
+  };
+
+  // Удаление графика
+  const removeGraph = (id: number) => {
+    setGraphs(graphs.filter((graph) => graph.id !== id));
+  };
+
+  // Обновление данных графика
+  const updateGraph = (id: number, field: string, value: any) => {
+    // console.log("update graph", id, field, value, graphs);
+    setGraphs(
+      graphs.map((graph) =>
+        graph.id === id ? { ...graph, [field]: value } : graph
+      )
+    );
+  };
+
+  // Обновление значений X
+  const handleXValuesChange = (values: number[]) => {
+    setXValues(values);
+    // Обновляем длину значений во всех графиках
+    setGraphs(
+      graphs.map((graph) => ({
+        ...graph,
+        values: graph.values
+          .slice(0, values.length)
+          .concat(
+            Array(Math.max(0, values.length - graph.values.length)).fill(0)
+          ),
+      }))
+    );
+  };
+
+  // Формируем единый массив объектов для графика
+  const chartData = xValues.map((x, i) => {
+    const dataPoint: any = { name: String(x) };
+    graphs.forEach((graph) => {
+      dataPoint[`graph_${graph.id}`] = graph.values[i] || 0;
+    });
+    return dataPoint;
+  });
 
   return (
-    <div className={styles.chartWrapper}>
-      <LineChart width={1200} height={532} data={data}>
-        <XAxis dataKey="name" />
-        <YAxis />
-        <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-        <Line type="monotone" dataKey="pv" stroke="#82ca9d" />
-        <Line type="monotone" dataKey="amt" stroke="#ffc658" />
-      </LineChart>
+    <div className={styles.container}>
+      <div className={styles.controls}>
+        <h2>Управление графиками</h2>
+
+        {/* Настройки оси X */}
+        <LineRow xValues={xValues} onXValuesChange={handleXValuesChange} />
+
+        <Soup
+          setWidth={setWidth}
+          setHeight={setHeight}
+          width={width}
+          height={height}
+        />
+        {/* Таблица графиков */}
+        <div className={styles.graphsTable}>
+          <h3>Графики (макс. 20)</h3>
+          <button onClick={addGraph} disabled={graphs.length >= 20}>
+            Добавить график
+          </button>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Название</th>
+                <th>Цвет</th>
+                {xValues.map((x, i) => (
+                  <th key={i}>X={x}</th>
+                ))}
+                <th>Действия</th>
+              </tr>
+            </thead>
+            <tbody>
+              {graphs.map((graph) => (
+                <tr key={graph.id}>
+                  <td>
+                    <input
+                      type="text"
+                      value={graph.name}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        updateGraph(graph.id, "name", e.target.value);
+                      }}
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="color"
+                      value={graph.color}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        updateGraph(graph.id, "color", e.target.value);
+                      }}
+                    />
+                  </td>
+                  {graph.values.map((value, i) => (
+                    <td key={i}>
+                      <input
+                        type="number"
+                        value={value}
+                        onChange={(e) => {
+                          const newValues = [...graph.values];
+                          newValues[i] = Number(e.target.value);
+                          updateGraph(graph.id, "values", newValues);
+                        }}
+                      />
+                    </td>
+                  ))}
+                  <td>
+                    <button onClick={() => removeGraph(graph.id)}>
+                      Удалить
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* График */}
+      <div className={styles.chartWrapper}>
+        <LineChart
+          width={Number(width)}
+          height={Number(height)}
+          data={chartData}
+        >
+          <XAxis dataKey="name" />
+          <YAxis />
+          <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+          <Tooltip />
+          <Legend />
+          {graphs.map((graph) => (
+            <Line
+              key={graph.id}
+              type="monotone"
+              dataKey={`graph_${graph.id}`}
+              name={graph.name}
+              stroke={graph.color}
+              activeDot={{ r: 8 }}
+            />
+          ))}
+        </LineChart>
+      </div>
     </div>
   );
 }
