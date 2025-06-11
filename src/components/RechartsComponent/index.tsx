@@ -12,7 +12,6 @@ import {
 import styles from "./styles.module.scss";
 
 export default function MenuGroups() {
-  // Ваши данные по осям
   const lineX = Array.from({ length: 25 }, (_, index) => index * 30);
   const curve1 = [
     0.2, -0.28, -0.32, -0.37, -0.42, -0.44, -0.27, 0.07, 0.56, 1.71, 5.05,
