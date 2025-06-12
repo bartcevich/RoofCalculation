@@ -11,6 +11,7 @@ import {
 } from "recharts";
 import styles from "./styles.module.scss";
 import { LineRow } from "../LineRow";
+import CustomXValues from "../CustomXValues/CustomXValues";
 import Soup from "@/components/Soup";
 
 interface GraphData {
@@ -32,10 +33,9 @@ export default function RechartsCurve() {
     },
   ]);
 
-  const [xValues, setXValues] = useState<number[]>(
-    [-100, -90, -80, -70, -60, -50, -40, -30, -20, -10]
-    // Array.from({ length: 25 }, (_, index) => index * 30)
-  );
+  const [xValues, setXValues] = useState<number[]>([
+    -100, -90, -80, -70, -60, -50, -40, -30, -20, -10,
+  ]);
   // Добавление нового графика
   const addGraph = () => {
     if (graphs.length >= 20) return;
@@ -96,6 +96,11 @@ export default function RechartsCurve() {
 
         {/* Настройки оси X */}
         <LineRow xValues={xValues} onXValuesChange={handleXValuesChange} />
+        {/* Настройки оси X с произвольными значениями */}
+        <CustomXValues
+          xValues={xValues}
+          onXValuesChange={handleXValuesChange}
+        />
 
         <Soup
           setWidth={setWidth}
@@ -106,7 +111,11 @@ export default function RechartsCurve() {
         {/* Таблица графиков */}
         <div className={styles.graphsTable}>
           <h3>Графики (макс. 20)</h3>
-          <button onClick={addGraph} disabled={graphs.length >= 20}>
+          <button
+            className={styles.addGraph}
+            onClick={addGraph}
+            disabled={graphs.length >= 20}
+          >
             Добавить график
           </button>
 
@@ -115,10 +124,10 @@ export default function RechartsCurve() {
               <tr>
                 <th>Название</th>
                 <th>Цвет</th>
+                <th>Действия</th>
                 {xValues.map((x, i) => (
                   <th key={i}>X={x}</th>
                 ))}
-                <th>Действия</th>
               </tr>
             </thead>
             <tbody>
@@ -142,6 +151,11 @@ export default function RechartsCurve() {
                       }}
                     />
                   </td>
+                  <td>
+                    <button onClick={() => removeGraph(graph.id)}>
+                      Удалить
+                    </button>
+                  </td>
                   {graph.values.map((value, i) => (
                     <td key={i}>
                       <input
@@ -155,11 +169,6 @@ export default function RechartsCurve() {
                       />
                     </td>
                   ))}
-                  <td>
-                    <button onClick={() => removeGraph(graph.id)}>
-                      Удалить
-                    </button>
-                  </td>
                 </tr>
               ))}
             </tbody>

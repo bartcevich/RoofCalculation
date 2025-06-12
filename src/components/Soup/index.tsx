@@ -120,7 +120,7 @@ const Starters: React.FC<MondayProps> = (props) => {
     <div>
       <div>
         <label className={styles.container_select}>
-          Ширина (5-25 м):
+          Длина:
           <input
             type="number"
             value={props.width}
@@ -134,13 +134,13 @@ const Starters: React.FC<MondayProps> = (props) => {
       </div>
       <div>
         <label className={styles.container_select}>
-          Длина (5-50 м):
+          Ширина:
           <input
             type="number"
             value={props.height}
-            step={0.2}
-            min={5}
-            max={50}
+            // step={0.2}
+            min={200}
+            max={800}
             onChange={handleLengthChange}
           />
         </label>

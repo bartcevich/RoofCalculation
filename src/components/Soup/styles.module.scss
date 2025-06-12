@@ -14,7 +14,7 @@
 .container_select{
     margin: 5px 0;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     background-color: transparent;
     @include font(#212121, Inter, 20px, normal, 600, 25px, 0);
     font-size: clamp(15px, 3vw, 20px);

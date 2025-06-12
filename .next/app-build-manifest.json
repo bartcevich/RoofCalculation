@@ -1,7 +1,7 @@
 {
   "pages": {
     "/page": [
-      "static/chunks/webpack-b33421febb691f0d.js",
+      "static/chunks/webpack-155dcdee6c17fb42.js",
       "static/chunks/bce60fc1-3d126acd8885c7c9.js",
       "static/chunks/769-b848ba59b233246b.js",
       "static/chunks/main-app-df7516cedafa5f2c.js",
@@ -9,11 +9,11 @@
       "static/chunks/656-8f1f2d9cba13c132.js",
       "static/chunks/380-b7910bf6a08d7ffa.js",
       "static/chunks/929-5ea5a5a6e1d59c9d.js",
-      "static/css/c6230590b1f157af.css",
-      "static/chunks/app/page-15dfa1a17e2349c2.js"
+      "static/css/c4a6c5d2df689a8d.css",
+      "static/chunks/app/page-cd00aaafaa446e27.js"
     ],
     "/layout": [
-      "static/chunks/webpack-b33421febb691f0d.js",
+      "static/chunks/webpack-155dcdee6c17fb42.js",
       "static/chunks/bce60fc1-3d126acd8885c7c9.js",
       "static/chunks/769-b848ba59b233246b.js",
       "static/chunks/main-app-df7516cedafa5f2c.js",
@@ -26,7 +26,7 @@
       "static/chunks/app/layout-834ab1db8b406e88.js"
     ],
     "/cookFromAvailable/page": [
-      "static/chunks/webpack-b33421febb691f0d.js",
+      "static/chunks/webpack-155dcdee6c17fb42.js",
       "static/chunks/bce60fc1-3d126acd8885c7c9.js",
       "static/chunks/769-b848ba59b233246b.js",
       "static/chunks/main-app-df7516cedafa5f2c.js",
@@ -36,7 +36,7 @@
       "static/chunks/app/cookFromAvailable/page-20de3588ec9abb86.js"
     ],
     "/favoriteMenu/page": [
-      "static/chunks/webpack-b33421febb691f0d.js",
+      "static/chunks/webpack-155dcdee6c17fb42.js",
       "static/chunks/bce60fc1-3d126acd8885c7c9.js",
       "static/chunks/769-b848ba59b233246b.js",
       "static/chunks/main-app-df7516cedafa5f2c.js",
@@ -45,7 +45,7 @@
       "static/chunks/app/favoriteMenu/page-9735c9208cc0ccff.js"
     ],
     "/kids/page": [
-      "static/chunks/webpack-b33421febb691f0d.js",
+      "static/chunks/webpack-155dcdee6c17fb42.js",
       "static/chunks/bce60fc1-3d126acd8885c7c9.js",
       "static/chunks/769-b848ba59b233246b.js",
       "static/chunks/main-app-df7516cedafa5f2c.js",
@@ -53,7 +53,7 @@
       "static/chunks/app/kids/page-2fc0d663f7d07376.js"
     ],
     "/programs/page": [
-      "static/chunks/webpack-b33421febb691f0d.js",
+      "static/chunks/webpack-155dcdee6c17fb42.js",
       "static/chunks/bce60fc1-3d126acd8885c7c9.js",
       "static/chunks/769-b848ba59b233246b.js",
       "static/chunks/main-app-df7516cedafa5f2c.js",

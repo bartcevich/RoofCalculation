@@ -3,73 +3,63 @@ import React, { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 
 interface XAxisSettingsProps {
-  xValues: number[];
-  onXValuesChange: (values: number[]) => void;
+  xValues: number[]; //массив значений оси Х
+  onXValuesChange: (values: number[]) => void; // функция добавления массива ко всем графикам
 }
 
 export const LineRow: React.FC<XAxisSettingsProps> = ({
   xValues,
   onXValuesChange,
 }) => {
-  const [inputValues, setInputValues] = useState({
-    from: xValues[0] || 0,
-    to: xValues[xValues.length - 1] || 0,
-    step: Math.abs(xValues[1] - xValues[0]) || 30, // Добавляем Math.abs для шага
-  });
-
-  useEffect(() => {
-    setInputValues({
-      from: xValues[0] || 0,
-      to: xValues[xValues.length - 1] || 0,
-      step: Math.abs(xValues[1] - xValues[0]) || 30, // Добавляем Math.abs для шага
-    });
-  }, [xValues]);
+  const [fieldFrom, setFieldFrom] = useState<number>(
+    xValues[xValues[0]] || -100
+  );
+  const [fieldTo, setFieldTo] = useState<number>(
+    xValues[xValues.length - 1] || -10
+  );
+  const [fieldStep, setFieldStep] = useState<number>(
+    xValues[Math.abs(xValues[1] - xValues[0])] || 10.99
+  );
 
   const updateValues = () => {
-    const { from, to, step } = inputValues;
+    // const { from, to, step } = inputValues;
     let count;
-    if (to >= from) {
-      count = Math.floor((to - from) / step) + 1;
+    if (fieldTo >= fieldFrom) {
+      count = Math.floor((fieldTo - fieldFrom) / fieldStep) + 1;
     } else {
-      count = Math.floor((from - to) / step) + 1; // Исправлено: для отрицательного диапазона
+      count = Math.floor((fieldTo - fieldFrom) / fieldStep) + 1; // Исправлено: для отрицательного диапазона
       if (count < 0) count = 0; // Дополнительная проверка, count не может быть отрицательным
     }
-    const newValues = Array.from({ length: count }, (_, i) => from + i * step);
+    const newValues = Array.from(
+      { length: count },
+      (_, i) => fieldFrom + i * fieldStep
+    );
     //Если from > to, то последовательность будет в обратном порядке.
-    if (to < from) {
+    if (fieldTo < fieldFrom) {
       newValues.reverse();
     }
     onXValuesChange(newValues);
   };
 
   const handleFromChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // const value = Number(e.target.value);
-    // console.log(value);
-    // // if (String(e.target.value) === "-") {
-    // if (e.target.value == '') {
-    //   console.log("inside", e.target.value);
-    //   //   setInputValues((prev) => ({
-    //   //     ...prev,
-    //   //     from: Number("-10"),
-    //   //   }));
-    // } else {
-    setInputValues((prev) => ({ ...prev, from: Number(e.target.value) }));
-    // }
+    const value = e.target.value;
+    setFieldFrom(Number(value));
   };
 
   const handleToChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValues((prev) => ({ ...prev, to: Number(e.target.value) }));
+    const value = e.target.value;
+    setFieldTo(Number(value));
+    // console.log("change field", value);
   };
 
   const handleStepChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Шаг должен быть положительным числом
     const value = Math.abs(Number(e.target.value));
-    setInputValues((prev) => ({ ...prev, step: value || 1 })); // Минимальный шаг 1
+    setFieldStep(value === 0 ? 1 : value);
   };
 
   const handleBlurOrKeyDown = (e: React.KeyboardEvent | React.FocusEvent) => {
     if ("key" in e && e.key !== "Enter") return;
-    updateValues();
+    // updateValues();
   };
 
   return (
@@ -79,37 +69,36 @@ export const LineRow: React.FC<XAxisSettingsProps> = ({
         <label>
           Диапазон:
           <input
-            type="number" // Изменяем тип на "string" для поддержки отрицательных значений
+            type="number"
             placeholder="От"
-            value={inputValues.from}
+            value={fieldFrom}
             onChange={handleFromChange}
             onBlur={handleBlurOrKeyDown}
             onKeyDown={handleBlurOrKeyDown}
-            step="any" // Позволяем любые числовые значения
           />
           <input
-            type="number" // Изменяем тип на "number" для поддержки отрицательных значений
+            type="number"
             placeholder="До"
-            value={inputValues.to}
+            value={fieldTo}
             onChange={handleToChange}
             onBlur={handleBlurOrKeyDown}
             onKeyDown={handleBlurOrKeyDown}
-            step="any" // Позволяем любые числовые значения
           />
         </label>
         <label>
           Шаг:
           <input
             type="number"
-            value={inputValues.step}
+            value={fieldStep}
             onChange={handleStepChange}
             onBlur={handleBlurOrKeyDown}
             onKeyDown={handleBlurOrKeyDown}
-            min="0.1" // Минимальное положительное значение шага
-            step="any"
+            min="0.01" // Минимальное положительное значение шага
           />
         </label>
-        <button onClick={updateValues}>Применить</button>
+        <button className={styles.editButton} onClick={updateValues}>
+          Применить
+        </button>
       </div>
     </div>
   );

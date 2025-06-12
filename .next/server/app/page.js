@@ -284,11 +284,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ 37894:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 933))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 643))
 
 /***/ }),
 
-/***/ 933:
+/***/ 643:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -488,72 +488,43 @@ var LineRow_styles_module_default = /*#__PURE__*/__webpack_require__.n(LineRow_s
 
 
 const LineRow = ({ xValues, onXValuesChange })=>{
-    const [inputValues, setInputValues] = (0,react_.useState)({
-        from: xValues[0] || 0,
-        to: xValues[xValues.length - 1] || 0,
-        step: Math.abs(xValues[1] - xValues[0]) || 30
-    });
-    (0,react_.useEffect)(()=>{
-        setInputValues({
-            from: xValues[0] || 0,
-            to: xValues[xValues.length - 1] || 0,
-            step: Math.abs(xValues[1] - xValues[0]) || 30
-        });
-    }, [
-        xValues
-    ]);
+    const [fieldFrom, setFieldFrom] = (0,react_.useState)(xValues[xValues[0]] || -100);
+    const [fieldTo, setFieldTo] = (0,react_.useState)(xValues[xValues.length - 1] || -10);
+    const [fieldStep, setFieldStep] = (0,react_.useState)(xValues[Math.abs(xValues[1] - xValues[0])] || 10.99);
     const updateValues = ()=>{
-        const { from, to, step } = inputValues;
+        // const { from, to, step } = inputValues;
         let count;
-        if (to >= from) {
-            count = Math.floor((to - from) / step) + 1;
+        if (fieldTo >= fieldFrom) {
+            count = Math.floor((fieldTo - fieldFrom) / fieldStep) + 1;
         } else {
-            count = Math.floor((from - to) / step) + 1; // Исправлено: для отрицательного диапазона
+            count = Math.floor((fieldTo - fieldFrom) / fieldStep) + 1; // Исправлено: для отрицательного диапазона
             if (count < 0) count = 0; // Дополнительная проверка, count не может быть отрицательным
         }
         const newValues = Array.from({
             length: count
-        }, (_, i)=>from + i * step);
+        }, (_, i)=>fieldFrom + i * fieldStep);
         //Если from > to, то последовательность будет в обратном порядке.
-        if (to < from) {
+        if (fieldTo < fieldFrom) {
             newValues.reverse();
         }
         onXValuesChange(newValues);
     };
     const handleFromChange = (e)=>{
-        // const value = Number(e.target.value);
-        // console.log(value);
-        // // if (String(e.target.value) === "-") {
-        // if (e.target.value == '') {
-        //   console.log("inside", e.target.value);
-        //   //   setInputValues((prev) => ({
-        //   //     ...prev,
-        //   //     from: Number("-10"),
-        //   //   }));
-        // } else {
-        setInputValues((prev)=>({
-                ...prev,
-                from: Number(e.target.value)
-            }));
-    // }
+        const value = e.target.value;
+        setFieldFrom(Number(value));
     };
     const handleToChange = (e)=>{
-        setInputValues((prev)=>({
-                ...prev,
-                to: Number(e.target.value)
-            }));
+        const value = e.target.value;
+        setFieldTo(Number(value));
+    // console.log("change field", value);
     };
     const handleStepChange = (e)=>{
-        // Шаг должен быть положительным числом
         const value = Math.abs(Number(e.target.value));
-        setInputValues((prev)=>({
-                ...prev,
-                step: value || 1
-            })); // Минимальный шаг 1
+        setFieldStep(value === 0 ? 1 : value);
     };
     const handleBlurOrKeyDown = (e)=>{
         if ("key" in e && e.key !== "Enter") return;
-        updateValues();
+    // updateValues();
     };
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         className: (LineRow_styles_module_default()).xSettings,
@@ -568,24 +539,20 @@ const LineRow = ({ xValues, onXValuesChange })=>{
                         children: [
                             "Диапазон:",
                             /*#__PURE__*/ jsx_runtime_.jsx("input", {
-                                type: "number" // Изменяем тип на "string" для поддержки отрицательных значений
-                                ,
+                                type: "number",
                                 placeholder: "От",
-                                value: inputValues.from,
+                                value: fieldFrom,
                                 onChange: handleFromChange,
                                 onBlur: handleBlurOrKeyDown,
-                                onKeyDown: handleBlurOrKeyDown,
-                                step: "any" // Позволяем любые числовые значения
+                                onKeyDown: handleBlurOrKeyDown
                             }),
                             /*#__PURE__*/ jsx_runtime_.jsx("input", {
-                                type: "number" // Изменяем тип на "number" для поддержки отрицательных значений
-                                ,
+                                type: "number",
                                 placeholder: "До",
-                                value: inputValues.to,
+                                value: fieldTo,
                                 onChange: handleToChange,
                                 onBlur: handleBlurOrKeyDown,
-                                onKeyDown: handleBlurOrKeyDown,
-                                step: "any" // Позволяем любые числовые значения
+                                onKeyDown: handleBlurOrKeyDown
                             })
                         ]
                     }),
@@ -594,17 +561,16 @@ const LineRow = ({ xValues, onXValuesChange })=>{
                             "Шаг:",
                             /*#__PURE__*/ jsx_runtime_.jsx("input", {
                                 type: "number",
-                                value: inputValues.step,
+                                value: fieldStep,
                                 onChange: handleStepChange,
                                 onBlur: handleBlurOrKeyDown,
                                 onKeyDown: handleBlurOrKeyDown,
-                                min: "0.1" // Минимальное положительное значение шага
-                                ,
-                                step: "any"
+                                min: "0.01" // Минимальное положительное значение шага
                             })
                         ]
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                        className: (LineRow_styles_module_default()).editButton,
                         onClick: updateValues,
                         children: "Применить"
                     })
@@ -613,6 +579,92 @@ const LineRow = ({ xValues, onXValuesChange })=>{
         ]
     });
 };
+
+// EXTERNAL MODULE: ./src/components/CustomXValues/styles.module.scss
+var CustomXValues_styles_module = __webpack_require__(4493);
+var CustomXValues_styles_module_default = /*#__PURE__*/__webpack_require__.n(CustomXValues_styles_module);
+;// CONCATENATED MODULE: ./src/components/CustomXValues/CustomXValues.tsx
+/* __next_internal_client_entry_do_not_use__ default auto */ 
+
+
+const CustomXValues = ({ xValues, onXValuesChange })=>{
+    const [inputValues, setInputValues] = (0,react_.useState)(xValues.map(String));
+    const [isEditing, setIsEditing] = (0,react_.useState)(false);
+    (0,react_.useEffect)(()=>{
+        setInputValues(xValues.map(String));
+    }, [
+        xValues
+    ]);
+    const handleInputChange = (index, value)=>{
+        const newInputValues = [
+            ...inputValues
+        ];
+        newInputValues[index] = value;
+        setInputValues(newInputValues);
+    };
+    const handleAddField = ()=>{
+        setInputValues([
+            ...inputValues,
+            ""
+        ]);
+    };
+    const handleKeyDown = (e, index)=>{
+        if (e.key === "Enter") {
+            // Если это последнее поле и оно не пустое, добавляем новое поле
+            if (index === inputValues.length - 1 && inputValues[index].trim() !== "") {
+                handleAddField();
+            }
+            // В любом случае сохраняем текущие значения
+            saveValues();
+        }
+    };
+    const saveValues = ()=>{
+        const parsedValues = inputValues.map((value)=>parseFloat(value)).filter((value)=>!isNaN(value));
+        if (parsedValues.length > 0) {
+            onXValuesChange(parsedValues);
+        }
+        setIsEditing(false);
+    };
+    const startEditing = ()=>{
+        setIsEditing(true);
+    };
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        className: (CustomXValues_styles_module_default()).customXValues,
+        children: [
+            /*#__PURE__*/ jsx_runtime_.jsx("h3", {
+                children: "Настройка значений X"
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                className: (CustomXValues_styles_module_default()).inputsContainer,
+                children: inputValues.map((value, index)=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                        className: (CustomXValues_styles_module_default()).inputWrapper,
+                        children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx("input", {
+                                type: "number",
+                                value: value,
+                                onChange: (e)=>handleInputChange(index, e.target.value),
+                                onKeyDown: (e)=>handleKeyDown(e, index),
+                                onBlur: saveValues,
+                                className: (CustomXValues_styles_module_default()).numberInput
+                            }),
+                            index === inputValues.length - 1 && /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                onClick: handleAddField,
+                                className: (CustomXValues_styles_module_default()).addButton,
+                                title: "Добавить поле",
+                                children: "+"
+                            })
+                        ]
+                    }, index))
+            }),
+            !isEditing && /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                onClick: startEditing,
+                className: (CustomXValues_styles_module_default()).editButton,
+                children: "Редактировать значения X"
+            })
+        ]
+    });
+};
+/* harmony default export */ const CustomXValues_CustomXValues = (CustomXValues);
 
 // EXTERNAL MODULE: ./src/components/Soup/styles.module.scss
 var Soup_styles_module = __webpack_require__(91191);
@@ -717,7 +769,7 @@ const Starters = (props)=>{
                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)("label", {
                         className: (Soup_styles_module_default()).container_select,
                         children: [
-                            "Ширина (5-25 м):",
+                            "Длина:",
                             /*#__PURE__*/ jsx_runtime_.jsx("input", {
                                 type: "number",
                                 value: props.width,
@@ -741,13 +793,13 @@ const Starters = (props)=>{
                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)("label", {
                         className: (Soup_styles_module_default()).container_select,
                         children: [
-                            "Длина (5-50 м):",
+                            "Ширина:",
                             /*#__PURE__*/ jsx_runtime_.jsx("input", {
                                 type: "number",
                                 value: props.height,
-                                step: 0.2,
-                                min: 5,
-                                max: 50,
+                                // step={0.2}
+                                min: 200,
+                                max: 800,
                                 onChange: handleLengthChange
                             })
                         ]
@@ -767,6 +819,7 @@ const Starters = (props)=>{
 
 ;// CONCATENATED MODULE: ./src/components/RechartsComponent/index.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
+
 
 
 
@@ -861,6 +914,10 @@ function RechartsCurve() {
                         xValues: xValues,
                         onXValuesChange: handleXValuesChange
                     }),
+                    /*#__PURE__*/ jsx_runtime_.jsx(CustomXValues_CustomXValues, {
+                        xValues: xValues,
+                        onXValuesChange: handleXValuesChange
+                    }),
                     /*#__PURE__*/ jsx_runtime_.jsx(Soup, {
                         setWidth: setWidth,
                         setHeight: setHeight,
@@ -874,6 +931,7 @@ function RechartsCurve() {
                                 children: "Графики (макс. 20)"
                             }),
                             /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                className: (RechartsComponent_styles_module_default()).addGraph,
                                 onClick: addGraph,
                                 disabled: graphs.length >= 20,
                                 children: "Добавить график"
@@ -889,15 +947,15 @@ function RechartsCurve() {
                                                 /*#__PURE__*/ jsx_runtime_.jsx("th", {
                                                     children: "Цвет"
                                                 }),
+                                                /*#__PURE__*/ jsx_runtime_.jsx("th", {
+                                                    children: "Действия"
+                                                }),
                                                 xValues.map((x, i)=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)("th", {
                                                         children: [
                                                             "X=",
                                                             x
                                                         ]
-                                                    }, i)),
-                                                /*#__PURE__*/ jsx_runtime_.jsx("th", {
-                                                    children: "Действия"
-                                                })
+                                                    }, i))
                                             ]
                                         })
                                     }),
@@ -922,6 +980,12 @@ function RechartsCurve() {
                                                             }
                                                         })
                                                     }),
+                                                    /*#__PURE__*/ jsx_runtime_.jsx("td", {
+                                                        children: /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                                            onClick: ()=>removeGraph(graph.id),
+                                                            children: "Удалить"
+                                                        })
+                                                    }),
                                                     graph.values.map((value, i)=>/*#__PURE__*/ jsx_runtime_.jsx("td", {
                                                             children: /*#__PURE__*/ jsx_runtime_.jsx("input", {
                                                                 type: "number",
@@ -934,13 +998,7 @@ function RechartsCurve() {
                                                                     updateGraph(graph.id, "values", newValues);
                                                                 }
                                                             })
-                                                        }, i)),
-                                                    /*#__PURE__*/ jsx_runtime_.jsx("td", {
-                                                        children: /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                                                            onClick: ()=>removeGraph(graph.id),
-                                                            children: "Удалить"
-                                                        })
-                                                    })
+                                                        }, i))
                                                 ]
                                             }, graph.id))
                                     })
@@ -1296,6 +1354,22 @@ const LoginForm = ()=>{
 
 /***/ }),
 
+/***/ 4493:
+/***/ ((module) => {
+
+// Exports
+module.exports = {
+	"customXValues": "styles_customXValues__UvUm_",
+	"inputsContainer": "styles_inputsContainer__qjS__",
+	"inputWrapper": "styles_inputWrapper__FqAoJ",
+	"numberInput": "styles_numberInput__kUeL8",
+	"addButton": "styles_addButton__bq_Ci",
+	"editButton": "styles_editButton__iM4hS"
+};
+
+
+/***/ }),
+
 /***/ 69804:
 /***/ ((module) => {
 
@@ -1304,7 +1378,8 @@ module.exports = {
 	"fontHelveticaNeueCyr": "HelveticaNeueCyr,sans-serif",
 	"fontBarlow": "Barlow,sans-serif",
 	"colorRedLight": "#ef233c",
-	"colorRedDark": "#d90429"
+	"colorRedDark": "#d90429",
+	"editButton": "styles_editButton__NiH_1"
 };
 
 
@@ -1344,7 +1419,8 @@ module.exports = {
 	"chartWrapper": "styles_chartWrapper__4rFbM",
 	"xSettings": "styles_xSettings__Aw_h0",
 	"rangeInput": "styles_rangeInput__6GJCy",
-	"graphsTable": "styles_graphsTable__09_Gf"
+	"graphsTable": "styles_graphsTable__09_Gf",
+	"addGraph": "styles_addGraph___kuRd"
 };
 
 
